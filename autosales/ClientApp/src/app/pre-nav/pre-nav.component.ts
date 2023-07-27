@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pre-nav.component.css']
 })
 export class PreNavComponent {
-  isLogin = false;
+  
 }

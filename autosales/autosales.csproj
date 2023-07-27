@@ -22,10 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\nav\nav.component.ts" />
     <None Remove="ClientApp\src\app\pre-nav\pre-nav.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\nav\nav.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\pre-nav\pre-nav.component.ts" />
   </ItemGroup>
 
