@@ -1,0 +1,55 @@
+form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width:500px;
+    background-color: beige;
+    padding:20px;
+    border-radius:10px;
+}
+
+.pressed {
+    background-color:lightpink !important;
+}
+
+#btn-used, #btn-all, #btn-new {
+    background-color:white;
+  width: 70px;
+  box-shadow: none;
+  border: 1px solid black;
+  transition: opacity ease 0.7s;
+  transition: background-color ease 0.7s;
+}
+
+#btn-used:hover, #btn-all:hover, #btn-new:hover {
+    opacity:0.6;
+}
+
+#btn-used {
+    margin-left:20px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-right:none;
+}
+
+#btn-new {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    border-left:none;
+}
+
+div {
+    display:flex;
+    justify-content:space-between;
+}
+
+input {
+    margin:20px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+input:focus {
+    border: 1px solid black;
+}
+
+

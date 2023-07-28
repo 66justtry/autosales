@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PreNavComponent } from './pre-nav/pre-nav.component';
 import { NavComponent } from './nav/nav.component';
+import { SearchFormShortComponent } from './search-form-short/search-form-short.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavComponent } from './nav/nav.component';
     CounterComponent,
     FetchDataComponent,
     PreNavComponent,
-    NavComponent
+    NavComponent,
+    SearchFormShortComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

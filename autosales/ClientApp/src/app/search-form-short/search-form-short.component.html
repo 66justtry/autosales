@@ -1,0 +1,9 @@
+<form>
+  <button id="btn-used" [ngClass]="{pressed: usedOrNew == 0}" (click)="setUsedOrNew(0)">Used</button>
+  <button id="btn-all" [ngClass]="{pressed: usedOrNew == 1}" (click)="setUsedOrNew(1)">All</button>
+  <button id="btn-new" [ngClass]="{pressed: usedOrNew == 2}" (click)="setUsedOrNew(2)">New</button>
+  <div>
+    <input type="text" placeholder="Brand" />
+    <input type="text" placeholder="Model" />
+  </div>
+</form>
