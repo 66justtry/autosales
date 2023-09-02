@@ -3,7 +3,8 @@
   <button id="btn-all" [ngClass]="{pressed: usedOrNew == 1}" (click)="setUsedOrNew(1)">All</button>
   <button id="btn-new" [ngClass]="{pressed: usedOrNew == 2}" (click)="setUsedOrNew(2)">New</button>
   <div>
-    <input type="text" placeholder="Brand" />
-    <input type="text" placeholder="Model" />
+    <input type="text" placeholder="Brand" ngModel name="brand" />
+    <input type="text" placeholder="Model" ngModel name="model" />
   </div>
+  <button type="submit">Submit</button>
 </form>

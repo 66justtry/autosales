@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PreNavComponent } from './pre-nav/pre-nav.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchFormShortComponent } from './search-form-short/search-form-short.component';
+import { SearchComponent } from './search/search.component';
+import { SearchElementComponent } from './search-element/search-element.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SearchFormShortComponent } from './search-form-short/search-form-short.
     FetchDataComponent,
     PreNavComponent,
     NavComponent,
-    SearchFormShortComponent
+    SearchFormShortComponent,
+    SearchComponent,
+    SearchElementComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,6 +36,7 @@ import { SearchFormShortComponent } from './search-form-short/search-form-short.
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'search', component: SearchComponent },
     ])
   ],
   providers: [],

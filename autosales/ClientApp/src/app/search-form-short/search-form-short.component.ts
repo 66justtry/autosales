@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-search-form-short',
@@ -10,4 +10,8 @@ export class SearchFormShortComponent {
   setUsedOrNew(val: number):void {
     this.usedOrNew = val;
   }
+  //submitForm(@Inject('BASE_URL') baseUrl: string) {
+  //  const url = baseUrl + 'search?' + new URLSearchParams(formData).toString();
+  //  console.log(url);
+  //}
 }
