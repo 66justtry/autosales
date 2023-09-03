@@ -47,9 +47,9 @@ namespace autosales.Models
                 entity.Property(e => e.CarId).HasColumnName("carid");
                 entity.Property(e => e.BrandId).HasColumnName("brandid");
                 entity.Property(e => e.ModelId).HasColumnName("modelid");
-                entity.HasOne(c => c.CarNavigation).WithOne(car => car.CreationNavigation).HasForeignKey<Creation>(c => c.CarId).HasConstraintName("creation_carid_fkey");
-                entity.HasOne(c => c.BrandNavigation).WithMany(brand => brand.CreationNavigation).HasForeignKey(c => c.BrandId).HasConstraintName("creation_brandid_fkey");
-                entity.HasOne(c => c.ModelNavigation).WithMany(model => model.CreationNavigation).HasForeignKey(c => c.ModelId).HasConstraintName("creation_modelid_fkey");
+                entity.HasOne(c => c.CarNavigation).WithOne(car => car.CreationNavigation).HasForeignKey<Creation>(c => c.CarId).HasConstraintName("creation_carid_fkey").OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(c => c.BrandNavigation).WithMany(brand => brand.CreationNavigation).HasForeignKey(c => c.BrandId).HasConstraintName("creation_brandid_fkey").OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(c => c.ModelNavigation).WithMany(model => model.CreationNavigation).HasForeignKey(c => c.ModelId).HasConstraintName("creation_modelid_fkey").OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Brand>(entity =>
@@ -66,7 +66,8 @@ namespace autosales.Models
                 entity.ToTable("model");
                 entity.Property(e => e.Id).ValueGeneratedOnAdd().HasColumnName("id");
                 entity.Property(e => e.Name).HasColumnName("name");
-                entity.HasOne(m => m.BrandNavigation).WithMany(b => b.ModelNavigation).HasForeignKey(m => m.BrandId).HasConstraintName("model_brandid_fkey");
+                entity.Property(e => e.BrandId).HasColumnName("brandid");
+                entity.HasOne(m => m.BrandNavigation).WithMany(b => b.ModelNavigation).HasForeignKey(m => m.BrandId).HasConstraintName("model_brandid_fkey").OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Usage>(entity =>
@@ -78,7 +79,7 @@ namespace autosales.Models
                 entity.Property(e => e.IsDamaged).HasColumnName("isdamaged");
                 entity.Property(e => e.Mileage).HasColumnName("mileage");
                 entity.Property(e => e.CarId).HasColumnName("carid");
-                entity.HasOne(u => u.CarNavigation).WithOne(c => c.UsageNavigation).HasForeignKey<Usage>(u => u.CarId).HasConstraintName("usage_carid_fkey");
+                entity.HasOne(u => u.CarNavigation).WithOne(c => c.UsageNavigation).HasForeignKey<Usage>(u => u.CarId).HasConstraintName("usage_carid_fkey").OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Info>(entity =>
@@ -91,10 +92,10 @@ namespace autosales.Models
                 entity.Property(e => e.TypeId).HasColumnName("typeid");
                 entity.Property(e => e.ColorId).HasColumnName("colorid");
                 entity.Property(e => e.StateId).HasColumnName("stateid");
-                entity.HasOne(i => i.CarNavigation).WithOne(c => c.InfoNavigation).HasForeignKey<Info>(i => i.CarId).HasConstraintName("info_carid_fkey");
-                entity.HasOne(i => i.TypeNavigation).WithMany(t => t.InfoNavigation).HasForeignKey(i => i.TypeId).HasConstraintName("info_typeid_fkey");
-                entity.HasOne(i => i.ColorNavigation).WithMany(c => c.InfoNavigation).HasForeignKey(i => i.ColorId).HasConstraintName("info_colorid_fkey");
-                entity.HasOne(i => i.StateNavigation).WithMany(s => s.InfoNavigation).HasForeignKey(i => i.StateId).HasConstraintName("info_stateid_fkey");
+                entity.HasOne(i => i.CarNavigation).WithOne(c => c.InfoNavigation).HasForeignKey<Info>(i => i.CarId).HasConstraintName("info_carid_fkey").OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(i => i.TypeNavigation).WithMany(t => t.InfoNavigation).HasForeignKey(i => i.TypeId).HasConstraintName("info_typeid_fkey").OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(i => i.ColorNavigation).WithMany(c => c.InfoNavigation).HasForeignKey(i => i.ColorId).HasConstraintName("info_colorid_fkey").OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(i => i.StateNavigation).WithMany(s => s.InfoNavigation).HasForeignKey(i => i.StateId).HasConstraintName("info_stateid_fkey").OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Type>(entity =>
