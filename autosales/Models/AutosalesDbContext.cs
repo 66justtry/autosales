@@ -36,6 +36,8 @@ namespace autosales.Models
                 entity.Property(e => e.Id).ValueGeneratedOnAdd().HasColumnName("id");
                 entity.Property(e => e.Price).HasColumnName("price");
                 entity.Property(e => e.IsDeleted).HasColumnName("isdeleted");
+                entity.Property(e => e.UserId).HasColumnName("userid");
+                entity.HasOne(c => c.UserNavigation).WithMany(u => u.CarNavigation).HasForeignKey(c => c.UserId).HasConstraintName("car_userid_fkey").OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Creation>(entity =>
@@ -120,6 +122,26 @@ namespace autosales.Models
                 entity.ToTable("state");
                 entity.Property(e => e.Id).ValueGeneratedOnAdd().HasColumnName("id");
                 entity.Property(e => e.Name).HasColumnName("name");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("user_pkey");
+                entity.ToTable("user");
+                entity.Property(e => e.Id).ValueGeneratedOnAdd().HasColumnName("id");
+                entity.Property(e => e.Name).HasColumnName("name");
+                entity.Property(e => e.Phone).HasColumnName("phone");
+            });
+
+            modelBuilder.Entity<Login>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("login_pkey");
+                entity.ToTable("login");
+                entity.Property(e => e.Id).ValueGeneratedOnAdd().HasColumnName("id");
+                entity.Property(e => e.Email).HasColumnName("email");
+                entity.Property(e => e.Password).HasColumnName("password");
+                entity.Property(e => e.UserId).HasColumnName("userid");
+                entity.HasOne(l => l.UserNavigation).WithOne(u => u.LoginNavigation).HasForeignKey<Login>(l => l.UserId).HasConstraintName("login_userid_fkey").OnDelete(DeleteBehavior.NoAction);
             });
 
             OnModelCreatingPartial(modelBuilder);

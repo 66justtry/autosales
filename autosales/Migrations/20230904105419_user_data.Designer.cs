@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using autosales.Models;
 
@@ -10,9 +11,11 @@ using autosales.Models;
 namespace autosales.Migrations
 {
     [DbContext(typeof(AutosalesDbContext))]
-    partial class AutosalesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230904105419_user_data")]
+    partial class user_data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
