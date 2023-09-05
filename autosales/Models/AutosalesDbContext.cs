@@ -13,6 +13,7 @@ namespace autosales.Models
 
         }
         public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Creation> Creations { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Model> Models { get; set; }
         public virtual DbSet<Usage> Usages { get; set; }
@@ -20,6 +21,8 @@ namespace autosales.Models
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //to do: get connection string from json file
